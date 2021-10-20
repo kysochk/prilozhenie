@@ -84,6 +84,9 @@
     <Compile Include="pages\login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pages\PageChange.xaml.cs">
+      <DependentUpon>PageChange.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\PageUsersLisl.xaml.cs">
       <DependentUpon>PageUsersLisl.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PageChange.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

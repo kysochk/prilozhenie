@@ -51,6 +51,35 @@ namespace prilozhenie.pages
         {
             lbUsersList.ItemsSource = users;//в качестве источника данных новый список
         }
+
+        private void out_Click(object sender, RoutedEventArgs e)
+        {
+            LoadPages.MainFrame.Navigate(new login());
+        }
+
+        private void NewUSadm_Click(object sender, RoutedEventArgs e)
+        {
+            LoadPages.MainFrame.Navigate(new reg(1));
+        }
+
+        private void Changebtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            int id = Convert.ToInt32(b.Uid);
+            auth tUser = BaseConnect.BaseModel.auth.FirstOrDefault(x => x.id == id);
+            LoadPages.MainFrame.Navigate(new PageChange(tUser));
+        }
+
+        private void Delbtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            int id = Convert.ToInt32(b.Uid);
+            auth DellUs = BaseConnect.BaseModel.auth.FirstOrDefault(x => x.id == id);
+            BaseConnect.BaseModel.auth.Remove(DellUs);
+            BaseConnect.BaseModel.SaveChanges();
+            MessageBox.Show("Пользователь удален!");
+            TimeSpan.FromSeconds(3);
+            lbUsersList.ItemsSource = BaseConnect.BaseModel.users.ToList();
+        }
     }
 }
-

@@ -22,6 +22,10 @@ namespace prilozhenie.pages
     {
         public reg()
         {
+        }
+
+        public reg(int v)
+        {
 
             InitializeComponent();
             listGenders.ItemsSource = BaseConnect.BaseModel.genders.ToList();//выбор источника данных 
